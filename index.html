@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantSafe AI</title>
+    <link rel="icon" type=".png" href="logo.png">
+    <link rel="stylesheet" href="style10.css">
+    
+
+</head>
+<body>
+
+<div class="wrap">
+
+    <header>
+        <h1>PlantSafe AI</h1>
+        <nav>
+            <button type="button" class="nav-btn">Leaf Scanner</button>
+        </nav>
+    </header>
+
+    <hr>
+
+    <div class="layout">
+
+        <main>
+            <section id="scanner">
+                <p class="small">AI Scanner</p>
+                <h2>Upload &amp; Detect</h2>
+                <p>Step 1: pick your plant. Step 2: upload a leaf photo.</p>
+
+                <div id="plantButtons" class="row"></div>
+                <p id="modelStatus" class="small">No plant selected.</p>
+
+                <div id="dropZone" class="drop">
+                    <p class="drop-title">Drag your leaf photo here</p>
+                    <p>JPG or PNG of a single leaf</p>
+                    <button type="button" id="chooseBtn">Choose from device</button>
+                    <input type="file" id="fileInput" accept="image/png, image/jpeg" hidden>
+                    <canvas id="preview" width="224" height="224" hidden></canvas>
+                </div>
+
+                <button type="button" id="analyseBtn" disabled>Analyse</button>
+
+                <div id="result" class="box">
+                    Upload a leaf photo and hit <b>Analyse</b> to see results here.
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="process">
+                <p class="small">The Process</p>
+                <h2>How PlantSafe AI Will Work</h2>
+                <ol>
+                    <li>Upload a photo — a clear, close-up shot of the leaf.</li>
+                    <li>Model reads the leaf — checks colour, spots, and texture.</li>
+                    <li>Get the result — disease name, confidence, and treatment.</li>
+                </ol>
+            </section>
+
+            <hr>
+        </main>
+
+        <aside>
+            <h2>Features</h2>
+
+            <details id="library">
+                <summary>Disease Library</summary>
+                <div class="inner">
+                    <input type="search" id="searchBox" placeholder="Search diseases">
+                    <select id="cropFilter"></select>
+                    <p id="libCount" class="small"></p>
+                    <div id="libList"></div>
+                </div>
+            </details>
+
+            <details id="care">
+                <summary>Care Checklist</summary>
+                <div class="inner">
+                    <div class="row">
+                        <input type="text" id="taskInput" placeholder="e.g. Water tomatoes">
+                        <button type="button" id="addTask">Add</button>
+                    </div>
+                    <ul id="taskList"></ul>
+                    <p id="taskEmpty" class="small">No tasks yet.</p>
+                </div>
+            </details>
+
+            <details id="quiz">
+                <summary>Leaf Symptom Quiz</summary>
+                <div class="inner">
+                    <div id="quizBox"></div>
+                    <button type="button" id="quizBtn">See result</button>
+                    <p id="quizResult"></p>
+                </div>
+            </details>
+        </aside>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+<script src="app5.js"></script>
+</body>
+</html>
